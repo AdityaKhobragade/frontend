@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Cards from '../components/Cards';
+import { BaseURL } from '../url';
 
 export default function Home() {
     const [ search, setSearch ] = useState( '' );
@@ -10,7 +11,7 @@ export default function Home() {
 
     const loadData = async () => {
         try {
-            let response = await fetch( "http://localhost:5000/api/foodData", {
+            let response = await fetch( `${BaseURL}/api/foodData`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
